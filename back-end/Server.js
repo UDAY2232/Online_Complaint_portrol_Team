@@ -2,10 +2,12 @@ import express from "express";
 import cors from "cors";
 import pool from "./Service.js";
 import complaintsRouter from "./api/complaints.js";
+import anonymousComplaintsRouter from "./api/anonymouscomplaints.js";
 import statusRoutes from "./api/status.js";
 import allComplaintsRouter from "./api/allcomplaints.js";
 import escalateRouter from "./api/escalate.js";
 import updateComplaintsRouter from "./api/updatecomplaints.js";
+
 
 
 const app = express();
@@ -15,6 +17,7 @@ app.use(express.json()); // To read JSON body
 
 // ✅ Routes
 app.use("/complaints", complaintsRouter);
+app.use("/api/anonymous", anonymousComplaintsRouter);
 app.use("/api/status", statusRoutes);
 app.use("/api/allcomplaints", allComplaintsRouter);
 app.use("/api/escalate", escalateRouter);
